@@ -31,16 +31,33 @@ namespace WebApiCore
             // Add framework services.
             services.AddMvc();
 
+            services.AddLogging();
+
             services.AddSingleton<ITodoRepository, TodoRepository>();
+
+            // Inject an implementation of ISwaggerProvider with defaulted settings applied
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            //loggerFactory.AddDebug();
 
-            app.UseMvc();
+            //app.UseMvc();
+
+
+            app.UseMvcWithDefaultRoute();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
+            //http://localhost:<random_port>/swagger/ui
+            app.UseSwaggerUi();
+
+            
         }
     }
 }
