@@ -14,7 +14,10 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-    "Swashbuckle": "6.0.0-beta902"
+    "Swashbuckle": "6.0.0-beta902",
+    "AutoMapper": "5.1.1",
+    "AutoMapper.Extensions.Microsoft.DependencyInjection": "1.1.0",
+    "Events.Services": "1.0.0-*"
   },
 
   "tools": {
